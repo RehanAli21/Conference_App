@@ -61,13 +61,38 @@ body {
 }
 
 .videosection .controls {
-  width: 74%;
-  height: 100px;
+  width: 25%;
   position: absolute;
-  bottom: 40px;
-  left: 0px;
-  background-color: red;
+  bottom: 50px;
+  left: 25%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: white;
+  z-index: 9;
 }
+
+.videosection .controls .icon {
+  width: 75%;
+  padding: 20px 0px;
+  text-align: center;
+  color: white;
+  text-align: center;
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+}
+.videosection .controls .icon:hover {
+  cursor: pointer;
+}
+.videosection .controls .icon:active {
+  scale: 0.9;
+}
+
+.videosection .controls i {  
+  margin: 0px auto;
+}
+
+
+
 
 .msgsection {
   width: 100%;
