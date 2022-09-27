@@ -123,10 +123,6 @@ import VideoRoom from '../Components/VideoRoom'
 const Room = ({ name, room, uid }) => {
 	const [screen, setScreen] = useState(false)
 
-	const Leavefunc = () => {
-		window.location.reload()
-	}
-
 	return (
 		<div className='room'>
 			{screen ? (
@@ -134,7 +130,6 @@ const Room = ({ name, room, uid }) => {
 			) : (
 				<VideoRoom setScreen={setScreen} screen={screen} room={room} />
 			)}
-
 			<div className='msgsection'></div>
 		</div>
 	)

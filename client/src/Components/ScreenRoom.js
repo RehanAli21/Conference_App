@@ -9,7 +9,7 @@ const config = {
 }
 
 const useClient = createClient(config)
-const useScreenVideoTrack = createScreenVideoTrack({}, '')
+const useScreenVideoTrack = createScreenVideoTrack({}, 'disable')
 
 const appId = process.env.REACT_APP_API_ID
 const token = process.env.REACT_APP_API_TOKEN || null
@@ -17,9 +17,6 @@ const token = process.env.REACT_APP_API_TOKEN || null
 const ScreenRoom = ({ room, setScreen, screen }) => {
 	const client = useClient()
 	let { ready, tracks } = useScreenVideoTrack()
-
-	const [video, setVideo] = useState(true)
-	const [audio, setAudio] = useState(true)
 
 	const [start, setStart] = useState(true)
 	const [users, setUsers] = useState([])
@@ -57,7 +54,7 @@ const ScreenRoom = ({ room, setScreen, screen }) => {
 			})
 
 			await client.join(appId, name, token, null)
-			if (tracks) await client.publish([tracks[0], tracks[1]])
+			if (tracks) await client.publish(tracks)
 			setStart(true)
 		}
 
@@ -66,36 +63,22 @@ const ScreenRoom = ({ room, setScreen, screen }) => {
 		}
 	}, [room, client, ready, tracks])
 
-	const Videofunc = async () => {
-		await tracks[1].setEnabled(!video)
-		setVideo(!video)
-	}
-
-	const Audiofunc = async () => {
-		await tracks[0].setEnabled(!audio)
-		setAudio(!audio)
-	}
-
 	const Leavefunc = () => {
 		window.location.reload()
 	}
 
 	const Screenfunc = async () => {
-		tracks[1].close()
+		tracks.close()
 		await client.leave()
-		setScreen(true)
+		setScreen(false)
 	}
 
 	return (
 		<div className='videosection' id='videosection'>
 			{start && tracks && <Videos users={users} tracks={tracks} />}
+
 			<div className='controls'>
-				<div className='icon' style={{ backgroundColor: video ? 'blueviolet' : '' }} onClick={Videofunc}>
-					<i className='gg-webcam' style={{ scale: '1.5' }}></i>
-				</div>
-				<div className='icon' style={{ backgroundColor: audio ? 'blueviolet' : '' }} onClick={Audiofunc}>
-					<i className='gg-mic' style={{ transform: 'scaleY(0.9)', marginTop: '2px' }}></i>
-				</div>
+				<div></div>
 				<div className='icon' style={{ backgroundColor: screen ? 'blueviolet' : '' }} onClick={Screenfunc}>
 					<i className='gg-screen' style={{ transform: 'scale(1.3)', marginTop: '-3px' }}></i>
 				</div>
