@@ -53,15 +53,14 @@ body {
 .videosection {
   width: 100%;
   height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   overflow-y: scroll;
 }
 
-.videosection .player {
-  width: 100%;
-  height: 100%;
+.vid {
+  width: 48% !important;
+  height: 50vh !important;
+  display: inline-block;
+  margin: 10px 1% !important;
 }
 
 .videosection .controls {

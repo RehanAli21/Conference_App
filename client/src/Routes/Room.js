@@ -8,7 +8,7 @@ let run = 0
 const Room = ({ name, room, uid }) => {
 	const [msg, setMsg] = useState('')
 	const [screen, setScreen] = useState(false)
-	const [members, setMembers] = useState([name])
+	const [members, setMembers] = useState([])
 	const [msgs, setMsgs] = useState([])
 
 	const [showMembers, setShowMembers] = useState(false)
@@ -26,7 +26,14 @@ const Room = ({ name, room, uid }) => {
 			})
 
 			socket.on('user leave', ({ name }) => {
-				const temp = members.filter(m => m !== name)
+				const nameEles = document.querySelectorAll('.membersNames')
+
+				const temp = []
+
+				nameEles.forEach(ele => {
+					if (name !== ele.innerHTML) temp.push(ele.innerHTML)
+				})
+
 				setMembers(temp)
 			})
 
@@ -72,7 +79,9 @@ const Room = ({ name, room, uid }) => {
 							transform: showMembers ? 'scaleY(1)' : 'scaleY(0)',
 						}}>
 						{members.map(member => (
-							<p>{member}</p>
+							<p key={key++} className='membersNames'>
+								{member}
+							</p>
 						))}
 					</div>
 				</div>

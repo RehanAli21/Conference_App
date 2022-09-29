@@ -58,14 +58,18 @@ io.on('connection', socket => {
 
 	socket.on('disconnect', () => {
 		let r = ''
+		let name = ''
 
 		for (const room in rooms) {
 			rooms[room].forEach(obj => {
 				if (obj.id === socket.id) {
 					r = room
+					name = obj.name
 				}
 			})
 		}
+
+		io.to(r).emit('user leave', { name })
 
 		if (rooms[r]) {
 			rooms[r] = rooms[r].filter(obj => obj.id !== socket.id)
