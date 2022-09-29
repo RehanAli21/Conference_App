@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+div {
+  overflow-x: hidden;
+}
+
 body {
   background-color: rgb(43, 43, 43);
 }
@@ -91,29 +95,117 @@ body {
   margin: 0px auto;
 }
 
-
-
-
 .msgsection {
   width: 100%;
   height: 100vh;
   border: none;
   box-shadow: -5px 0px 5px blueviolet;
+  display: grid;
+  grid-template-rows: 60px auto;
 }
+
+.msgsection .members {
+  width: 100%;
+  padding: 10px 0px;
+  color: white;
+  text-transform: capitalize;
+  border-bottom: 1px solid blueviolet;
+}
+
+.msgsection .members .head {
+  text-align: center;
+  grid-template-columns: 80% 10%;
+  width: 100%;
+}
+.msgsection .members .head .float {
+  float: right;
+  margin-top: -28px;
+  margin-right: 70px;
+  cursor: pointer;
+}
+.msgsection .members .head .float:hover {
+  color: royalblue;
+}
+
+.msgsection .members .membersDiv {
+  margin-left: 50px;
+  width: 20%;
+  padding-bottom: 5px;
+  background-color: blueviolet;
+  position: absolute;
+}
+.msgsection .members .membersDiv p {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.msgs {
+  display: grid;
+  grid-template-rows: auto 50px;
+}
+.msgsDiv {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.msgsDiv p {
+  width: 50%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  margin: 10px 5px;
+  display: block;
+}
+.msgsDiv span {
+  display: block;
+  font-size: 14px;
+  margin-left: -8px;
+  margin-bottom: 8px;
+  font-weight: bolder;
+}
+.msgsDiv .usermsg {
+  background-color: blueviolet;
+}
+
+.msgsDiv .othermsg {
+  background-color: royalblue;
+  margin-left: 40%;
+}
+
+.msgs input {
+  width: 75%;
+  padding: 5px;
+  margin: 0px 10px;
+}
+.msgs button {
+  padding: 6px 10px;
+  background-color: blueviolet;
+  border: none;
+  font-weight: bolder;
+  color: white;
+  cursor: pointer;
+}
+.msgs button:hover {
+  filter: brightness(0.9);
+}
+.msgs button:active {
+  transform: scale(0.9);
+}
+
 
 *::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+	-webkit-box-shadow: inset 0 0 6px blueviolet;
+  box-shadow: inset 0 0 6px blueviolet;
+	background-color: lightskyblue;
 }
 
 *::-webkit-scrollbar
 {
 	width: 6px;
-	background-color: #F5F5F5;
+	background-color: lightskyblue;
 }
 
 *::-webkit-scrollbar-thumb
 {
-	background-color: #000000;
+	background-color: blueviolet;
 }
