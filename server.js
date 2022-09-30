@@ -6,7 +6,12 @@ const path = require('path')
 
 const app = express()
 const server = http.createServer(app)
-const io = socketio(server)
+const io = socketio(server, {
+	cors: {
+		origin: '*',
+		methods: ['GET', 'POST'],
+	},
+})
 
 // middlewares
 app.use(express.json())
