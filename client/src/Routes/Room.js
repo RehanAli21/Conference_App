@@ -3,9 +3,9 @@ import ScreenRoom from '../Components/ScreenRoom'
 import VideoRoom from '../Components/VideoRoom'
 import io from 'socket.io-client'
 
-let socket = io('https://tired-jay-buckle.cyclic.app/')
+let socket = io('http://localhost:5000')
 let run = 0
-const Room = ({ name, room }) => {
+const Room = ({ name, room, uid }) => {
 	const [msg, setMsg] = useState('')
 	const [screen, setScreen] = useState(false)
 	const [members, setMembers] = useState([])
