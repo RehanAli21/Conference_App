@@ -9,7 +9,7 @@ const Main = ({ setName, setRoom }) => {
 			setName(n)
 			setRoom(r)
 		} else {
-			alert('Fill all fields')
+			alert('Show all fields')
 		}
 	}
 
