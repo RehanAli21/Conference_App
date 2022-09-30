@@ -3,7 +3,7 @@ import ScreenRoom from '../Components/ScreenRoom'
 import VideoRoom from '../Components/VideoRoom'
 import io from 'socket.io-client'
 
-let socket = io()
+let socket = io('https://tired-jay-buckle.cyclic.app/')
 let run = 0
 const Room = ({ name, room }) => {
 	const [msg, setMsg] = useState('')
