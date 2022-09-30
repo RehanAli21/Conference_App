@@ -2,26 +2,27 @@ const express = require('express')
 const http = require('http')
 const cors = require('cors')
 const socketio = require('socket.io')
+const path = require('path')
 
 const app = express()
 const server = http.createServer(app)
-const io = socketio(server, {
-	cors: {
-		origin: '*',
-		methods: ['GET', 'POST'],
-	},
-})
+const io = socketio(server)
 
 // middlewares
 app.use(express.json())
 app.use(cors())
 
 ////////////////////////////////////////
-// Route for checking if server is running or not
+// Serve Static assests in production
 ////////////////////////////////////////
-app.get('/', (req, res) => {
-	res.status(200).send('Yes! it is running')
-})
+if (process.env.NODE_ENV === 'production') {
+	//set static folder
+	app.use(express.static('client/build'))
+
+	app.get('/', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+	})
+}
 
 const rooms = {}
 // on socket connection
