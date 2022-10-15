@@ -6,11 +6,10 @@ Web application for conference video calling and screening sharing with real tim
 2. Enter Name.
 3. Enter Room Name for joining.
 
-Microphone can be muted and unmuted
-VIdeo can be activated and deactivated
-Screen can be shared
-
-Clicking on the arrow in the top right right will show all members name in the room
+- Microphone can be muted and unmuted.
+- VIdeo can be activated and deactivated.
+- Screen can be shared.
+- Clicking on the arrow in the top right right will show all members name in the room
 
 ## Built With
 ### Frontend
