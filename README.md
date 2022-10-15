@@ -14,13 +14,13 @@ Clicking on the arrow in the top right right will show all members name in the r
 
 ## Built With
 ### Frontend
-React.js
-Socket.io-client
-Agora-rtc-sdk-ng
-Agora-rtc-react (Agora sdk Wrapper for react)
-Dotenv
+- React.js
+- Socket.io-client
+- Agora-rtc-sdk-ng
+- Agora-rtc-react (Agora sdk Wrapper for react)
+- Dotenv
 
 ### Backend
-Node.js
-Express
-Socket.io
+- Node.js
+- Express.js
+- Socket.io
